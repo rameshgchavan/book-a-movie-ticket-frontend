@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { Container } from 'react-bootstrap';
+import { useState } from 'react';
+
+import LastBookingDetails from './components/LastBookingDetails';
+import BookingForm from './components/BookingForm';
+
+import { LastBookingContext } from "./contextAPI/lastBooking"
 
 function App() {
+  const [lastBooking, setLastBooking] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="App shadow p-3">
+      <h4> Book that show!!</h4>
+
+      <div className="d-lg-flex flex-lg-row gap-lg-3 align-items-start fw-bold">
+        <LastBookingContext.Provider value={{ lastBooking, setLastBooking }}>
+          <BookingForm />
+          <LastBookingDetails />
+        </LastBookingContext.Provider>
+      </div>
+    </Container>
   );
 }
 
