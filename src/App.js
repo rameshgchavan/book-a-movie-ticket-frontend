@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Container className="App shadow p-3">
-      <h4> Book that show!!</h4>
+      <h4>Book that show!!</h4>
 
       <div className="d-lg-flex flex-lg-row gap-lg-3 align-items-start fw-bold">
         {/* Wrapped components inside contextAPI to handle last movie booking */}
