@@ -7,13 +7,13 @@ import { LastBookingContext } from "../contextAPI/lastBooking";
 // Imported axios to handle http requests
 import axios from "axios";
 
-const LastBooking = () => {
-    // Destructed value of contextapi
+const LastBookingDetails = () => {
+    // Destructured value of contextapi
     const { lastBooking, setLastBooking } = useContext(LastBookingContext);
 
     useEffect(() => {
         getLastBooking();
-    }, [])
+    })
 
     // Arrow function to get data
     const getLastBooking = async () => {
@@ -29,7 +29,10 @@ const LastBooking = () => {
         <div className='col-lg-3 border border-dark rounded mt-lg-0 mt-2 p-2 text-md-nowrap'
             style={{ fontSize: 'small' }}>
 
-            <span className="fs-5">Last Booking Details:</span>
+            <span className="fs-5" data-testid="title">
+                Last Booking Details:
+            </span>
+
             {/*If last movie booking found show it or show message "no previous booking found" */}
             {lastBooking === undefined || lastBooking?.message
                 ? <div className="text-danger">{lastBooking?.message}</div>
@@ -51,4 +54,4 @@ const LastBooking = () => {
     )
 }
 
-export default LastBooking
+export default LastBookingDetails
