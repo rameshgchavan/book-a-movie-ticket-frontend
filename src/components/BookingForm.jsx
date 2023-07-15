@@ -12,7 +12,7 @@ import _ from 'lodash'
 import { LastBookingContext } from '../contextAPI/lastBooking';
 
 const BookingFrom = () => {
-    // Destructed value of contextapi
+    // Destructured value of contextapi
     const { setLastBooking } = useContext(LastBookingContext)
     // To store index of array useState hook is used
     const [movieIndex, setMovieIndex] = useState();
@@ -21,9 +21,9 @@ const BookingFrom = () => {
 
     // Object created to store seats value with zero
     let zeroSeats = {};
-    seats.map((key) => {
+    seats.map((key) =>
         zeroSeats = { ...zeroSeats, [key]: 0 }
-    })
+    )
     // Created state to store object
     const [seatsDetails, setSeatsDetails] = useState(zeroSeats);
 
@@ -96,14 +96,14 @@ const BookingFrom = () => {
         <Form onSubmit={(e) => handleSubmit(e)}      >
             <div >
                 {/* Movie row */}
-                <div className='movie-row border border-dark rounded mb-2 p-2 fs-5 '>
+                <div data-testid="movie-row" className='movie-row border border-dark rounded mb-2 p-2 fs-5 '>
                     Select a Movie
                     <div className='d-flex flex-wrap mt-2'>
                         {
                             movies.map((movie, index) => {
                                 return (
-                                    <div key={index}
-                                        className={`${movieIndex == index ? 'movie-column-selected' : 'movie-column'}
+                                    <div key={index} data-testid={`movie-${index}`}
+                                        className={`${movieIndex === index ? 'movie-column-selected' : 'movie-column'}
                                          border border-dark rounded mb-2 me-2 p-2 fs-6 text-sm-nowrap`}
                                         onClick={(e) => { storeMovieSelection(index, slotIndex, seatsDetails); }}
                                     >
@@ -116,14 +116,14 @@ const BookingFrom = () => {
                 </div>
 
                 {/* Slot row */}
-                <div className='slot-row border border-dark rounded mb-2 p-2 fs-5 '>
+                <div data-testid="slot-row" className='slot-row border border-dark rounded mb-2 p-2 fs-5 '>
                     Select a Time slot
                     <div className='d-flex flex-wrap mt-2'>
                         {
                             slots.map((slot, index) => {
                                 return (
-                                    <div key={index}
-                                        className={`${slotIndex == index ? 'slot-column-selected' : 'slot-column'} \
+                                    <div key={index} data-testid={`slot-${index}`}
+                                        className={`${slotIndex === index ? 'slot-column-selected' : 'slot-column'} \
                                         border border-dark rounded mb-2 me-2 p-2 fs-6 text-sm-nowrap`}
                                         onClick={(e) => { storeMovieSelection(movieIndex, index, seatsDetails); }}
                                     >
@@ -136,19 +136,20 @@ const BookingFrom = () => {
                 </div>
 
                 {/* Seat row */}
-                <div className='seat-row border border-dark rounded mb-2 p-2 fs-5 '>
+                <div data-testid="seat-row" className='seat-row border border-dark rounded mb-2 p-2 fs-5 '>
                     Select the seats
                     <div className='d-flex flex-wrap mt-2'>
                         {
                             seats.map((seat, index) => {
                                 return (
-                                    <div key={index}
-                                        className={`${seatTypeIndex == index || seatsDetails[seat] > 0 ? 'seat-column-selected' : 'seat-column'}
+                                    <div key={index} data-testid={`seat-${index}`}
+                                        className={`${seatTypeIndex === index || seatsDetails[seat] > 0 ? 'seat-column-selected' : 'seat-column'}
                                         border border-dark rounded mb-2 me-2 p-2 fs-6 text-sm-nowrap`}
                                         onClick={(e) => { setSeatTypeIndex(index); }}
                                     >
                                         Type {seat} <br />
-                                        <input id={`seat-${seat}`} type='number' min={0} style={{ width: "2.5rem", height: "1.2rem", fontSize: "small" }} className="mt-1"
+                                        <input id={`seat-${seat}`} data-testid={`seat-${seat}`}
+                                            type='number' min={0} style={{ width: "2.5rem", height: "1.2rem", fontSize: "small" }} className="mt-1"
                                             value={seatsDetails[seat]}
                                             onChange={(e) => { storeMovieSelection(movieIndex, slotIndex, { ...seatsDetails, [seat]: Number(e.target.value) }); }}
                                         />
