@@ -12,13 +12,13 @@ In this project I have created two component as following
 
 ### `Components`
 #### BookingForm.jsx
-In this component I have given 3 rows movie, slot and seat that user can select as his choice.
-User have to select a movie, a slot and at least one seat. 
-If user accidently refresh the page the selection remains as it was.
+In this component I have given 3 rows movie, slot and seat that user can select as his choice.\
+User have to select a movie, a slot and at least one seat.\
+If user accidently refresh the page the selection remains as it was.\
 After selection user can hit Book Now button to save his selected movie according slot and number of seats he selected.
 
 #### LastBookingDetails.jsx
-This component has been created to show last movie booking details. 
+This component has been created to show last movie booking details.\
 If previous movie booking found it shows the number of seats, a slot and a movie if not then it shows no previous booking found message.
 
 ### `Data`
