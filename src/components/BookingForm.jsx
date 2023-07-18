@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from 'react';
 // Imported bootstrap comonents
 import { Button, Form } from 'react-bootstrap';
 // Imported array from data file
-import { movies, slots, seats } from "./data";
+import { movies, slots, seats } from "../data";
 // Imported axios to handle http requests
 import axios from 'axios';
 // Imported lodash to compare array

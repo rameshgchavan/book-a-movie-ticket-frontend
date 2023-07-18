@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { cleanup, render, screen, fireEvent } from "@testing-library/react";
 import BookingFrom from "./BookingForm"
-import { movies, slots, seats } from "./data"
+import { movies, slots, seats } from "../data"
 
 afterEach(cleanup);
 

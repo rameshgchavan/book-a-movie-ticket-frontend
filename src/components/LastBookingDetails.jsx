@@ -1,7 +1,7 @@
 // Imported react hooks
 import { useContext, useEffect } from "react";
 // Imported array from data file
-import { seats } from "./data";
+import { seats } from "../data";
 // Imported last movie booking contextapi
 import { LastBookingContext } from "../contextAPI/lastBooking";
 // Imported axios to handle http requests
