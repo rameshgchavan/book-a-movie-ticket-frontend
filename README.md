@@ -72,7 +72,7 @@ Read more: [react testing library](https://testing-library.com/docs/react-testin
 -> LastBookingDetails shows last movie booking details
 
 ## Prerequisites
-Need to run backend server [Book a movie ticket Backend](https://github.com/rameshgchavan/book-a-movie-ticket-backend/tree/main).
+Need to run backend server [Book a movie ticket Backend](https://github.com/rameshgchavan/book-a-movie-ticket-backend).
 
 ## Script to run and test app
 ### `npm start`
